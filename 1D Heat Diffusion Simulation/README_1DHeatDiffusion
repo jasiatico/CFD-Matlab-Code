@@ -1,0 +1,29 @@
+1D Heat Diffusion Simulation
+-Predict time for heat of re-entry to pass through shuttle tile and heat bondline to 600 degree Fahrenheit using 1D heat equation using the following:
+
+A) 2-stage Runge Kutta Explicit Scheme
+B) Implicit Scheme
+
+Given Parameters:
+    2" thick tile (r=140 kg/m^3, c=628 J/kg-K, k=0.048 W/m-K)
+    2300 deg Fahrenheit or 1530 Kelvin specified temperature on re-entry side (Dirichlet)
+    adiabatic on internal side (Neumann)
+    600 deg Fahrenheit or 587 Kelvin bondline temperature limit
+    initial temperature of 300 Kelvin
+
+Schemes:
+A) RK2 Explicit (2nd order temporal and 2nd order spatial)
+                Use timestep based on r=0.5
+                Find grid independent answer to within 0.1 seconds
+                Must account for fraction of timestep to reach bondline temperature (not the full timestep)
+
+B) Implicit Scheme (1st order temporal and 2nd order spatial)
+                Use moderate timestep for accuracy (r=2.0)
+                Find grid independent answer to within 0.1 seconds
+                Must code Thomas Algorithm
+                Must account for fraction of timestep to reach bondline temperature (not the full timestep)
+
+
+You should produce the following:
+1) Predicted time when bondline temperature is reached vs. grid size (in table for both schemes for at least three grid fineness levels)
+2) Temperature distributions within 1-D tile at final time  (both schemes)
